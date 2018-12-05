@@ -1,0 +1,70 @@
+{>"layouts/manage"/}
+
+{<body}
+    <div class="row">
+        <div class="large-12 columns">
+            <h2>Add Books</h2>
+            <form method="post" action="/manage/books">
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Title
+                            <input type="text"  name="title"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Author
+                            <input type="text"  name="author"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Publisher
+                            <input type="text"   name="publisher"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Price
+                            <input type="text"  name="price"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Category
+                            <select name="category">
+                                {#categories}
+                                    <option value="{.name}">{.name}</option>
+                                {/categories}
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Description
+                            <textarea name="description" ></textarea>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label>Cover URL
+                            <input type="text" name="cover"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                            <input type="submit" class="button" value="Submit"/>
+                    </div>
+                </div>
+                <input type="hidden" name="_csrf" value="{_csrf}">
+            </form>
+        </div>
+    </div>
+{/body}

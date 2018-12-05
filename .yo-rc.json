@@ -1,0 +1,14 @@
+{
+  "generator-kraken": {
+    "taskModule": "grunt",
+    "lintModule": "eslint",
+    "description": "Online Bookstore",
+    "author": "Bolorunduro Valiant-Joshua",
+    "templateModule": "dustjs",
+    "i18n": "i18n",
+    "componentPackager": "bower",
+    "cssModule": "less",
+    "jsModule": "requirejs",
+    "useJson": null
+  }
+}
