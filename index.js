@@ -4,6 +4,7 @@ var express = require('express');
 var kraken = require('kraken-js');
 var  flash = require('connect-flash');
 var  db = require('./lib/db');
+var paystack = require('paystack')('sk_test_2f212a9e4acc03be28afd6a2b1e69e6bc8555ac4');
 
 
 var options, app;
