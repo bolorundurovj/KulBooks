@@ -1,0 +1,100 @@
+{>"layouts/master" /}
+<html>
+<head>
+    <title>Provide email</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="libphonenumber-compiled.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-3">Paystack Checkout</h1>
+            <form class="form" id="subscribe-form">
+                <div class="text-center">
+                    <p>Please provide your details and click "Pay".</p>
+                </div>
+                <fieldset class="form-group row">
+                    <label class="col-sm-3" for="firstname">First Name</label>
+                    <div class=" col-sm-9">
+                        <input class="form-control" id="firstname" type="text" placeholder="Your First name (optional)" />
+                    </div>
+                </fieldset>
+                <fieldset class="form-group row">
+                    <label class="col-sm-3" for="lastname">Last Name</label>
+                    <div class=" col-sm-9">
+                        <input class="form-control" id="lastname" type="text" placeholder="Your Last name (optional)" />
+                    </div>
+                </fieldset>
+                <fieldset class="form-group row">
+                    <label class="col-sm-3" for="phoneNumber">Phone Number</label>
+                    <div class=" col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-addon"><input maxlength="2" type="text" name="defaultCountry" id="defaultCountry" size="2" value="NG" /></div>
+                            <input class="form-control" id="phoneNumber" name="phoneNumber" required="required" type="text" placeholder="Your Phone Number" />
+                        </div>
+                    </div>
+                    <small class="text-muted col-sm-9 col-sm-offset-3">We'll never share your phone number with anyone else.</small>
+                </fieldset>
+                <fieldset class="form-group row">
+                    <label class="col-sm-3" for="email">Email Address</label>
+                    <div class=" col-sm-9">
+                        <input class="form-control" id="email" required="required" type="email" placeholder="Your Email Address" />
+                    </div>
+                    <small class="text-muted col-sm-9 col-sm-offset-3">We'll never share your email with anyone else.</small>
+                </fieldset>
+                <fieldset class="form-group row" id="amountinnaira">
+                    <label class="col-sm-3" for="amount-in-naira">Amount (in Naira)</label>
+                    <div class="col-sm-9">
+                        <div class="input-group">
+                            <div class="input-group-addon">&#x20a6;</div>
+                            <input class="form-control" id="amount-in-naira" required="required" type="number" step="100" value="{cart.total}" />
+                            <div class="input-group-addon">.00</div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset class="form-group row">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <button class="btn btn-secondary" type="button" onclick="payWithPaystack()"> Pay </button>
+
+                        <script>
+                            function payWithPaystack(){
+                              var handler = PaystackPop.setup({
+                                key: 'pk_test_86d32aa1nV4l1da7120ce530f0c',
+                                email: 'customer@email.com',
+                                amount: 10000,
+                                ref: ''+Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+                                firstname: 'Stephen',
+                                lastname: 'King',
+                                // label: "Optional string that replaces customer email"
+                                metadata: {
+                                   custom_fields: [
+                                      {
+                                          display_name: "Mobile Number",
+                                          variable_name: "mobile_number",
+                                          value: "+2348012345678"
+                                      }
+                                   ]
+                                },
+                                callback: function(response){
+                                    alert('success. transaction ref is ' + response.reference);
+                                },
+                                onClose: function(){
+                                    alert('window closed');
+                                }
+                              });
+                              handler.openIframe();
+                            }
+                          </script>
+                    </div>
+                </fieldset>
+                <!-- HACK to use Google's libphonenumber for validating phone numbers -->
+                <input type="hidden" name="carrierCode" id="carrierCode" value="" />
+                <textarea id="output" rows="0" cols="0" style="display:none"></textarea>
+            </form>
+        </div>
+    </div>
+</body>
+<!-- <script src="app.js"></script> -->
+</html>

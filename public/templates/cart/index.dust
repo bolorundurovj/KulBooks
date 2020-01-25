@@ -23,7 +23,7 @@
                   <tr>
                     <td><a href="books/details/{._id}">{.title}</a></td>
                     <td>{.qty}</td>
-                    <td>${@math key="{.price}" method="multiply" operand="{.qty}" /}</td>
+                    <td>&#8358 {@math key="{.price}" method="multiply" operand="{.qty}" /}</td>
                     <td><a href="remove">Remove</a></td>
                   </tr>
                   {/cart.items}
@@ -31,7 +31,7 @@
               </table>
               <div class="row">
                     <div class="large-6 columns">
-                        <h4>Total: <strong>${cart.total}</strong></h4>
+                        <h4>Total: <strong>&#8358 {cart.total}</strong></h4>
                     </div>
                     <div class="large-6 columns">
                             
