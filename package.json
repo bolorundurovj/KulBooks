@@ -24,7 +24,7 @@
         "express-messages": "^1.0.1",
         "kraken-js": "^2.0.0",
         "localizr": "^1.1.0",
-        "mongodb": "^3.1.10",
+        "mongodb": "^3.1.13",
         "mongoose": "^5.3.13",
         "paystack": "^2.0.1",
         "paystack-js": "^0.18.1",
