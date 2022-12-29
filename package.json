@@ -20,7 +20,7 @@
         "dustjs-linkedin": "^2.7.5",
         "engine-munger": "^1.1.2",
         "eslint": "^6.0.1",
-        "express": "^4.12.2",
+        "express": "^4.17.3",
         "express-messages": "^1.0.1",
         "kraken-js": "^2.0.0",
         "localizr": "^1.1.0",
