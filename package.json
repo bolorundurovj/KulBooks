@@ -25,7 +25,7 @@
         "kraken-js": "^2.0.0",
         "localizr": "^1.1.0",
         "mongodb": "^3.7.4",
-        "mongoose": "^8.8.3",
+        "mongoose": "^8.9.5",
         "paystack": "^2.0.1",
         "paystack-js": "^0.18.1",
         "requirejs": "^2.3.7"
